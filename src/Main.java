@@ -11,5 +11,23 @@ public class Main {
 		System.out.print("Inserisci un numero ");
 		int n = input.nextInt();
 		boolean[] primi = new boolean[n + 1];
+		// inizializzazione array
+		for(int i = 2; i <= n; i++) {
+			primi[i] = true;
+		}
+		// verifico numeri primi
+		for(int i = 2; i <= n; i++) {
+			if(primi[i]) {
+				for(int multiplo = i * 2; multiplo <= n; multiplo += i) {
+					primi[multiplo] = false; 
+				}
+			}
+		}
+		// stampo il risultato
+		for(int i = 2; i <= n; i++) {
+			if(primi[i]) {
+				System.out.println(i);
+			}
+		}
 	}
 }
